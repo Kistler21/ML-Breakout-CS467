@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Code derived from https://www.youtube.com/watch?v=NWG8vO02oj4
+
+
 public class Paddle_Script : MonoBehaviour
 {
     // variable for asset/sprite speed
