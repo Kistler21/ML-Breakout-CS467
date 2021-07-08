@@ -31,7 +31,7 @@ public class Paddle_Script : MonoBehaviour
         transform.Translate(Vector2.right * horizontal * Time.deltaTime * speed);
 
         // if stmnt to prevent paddle from passing screen edge on left
-        if(transform.position.x < leftScreenLimit)
+        if (transform.position.x < leftScreenLimit)
         {
             transform.position = new Vector2(leftScreenLimit, transform.position.y);
         }
