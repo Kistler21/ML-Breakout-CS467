@@ -32,13 +32,13 @@ public class Ball_Script : MonoBehaviour
     void Update()
     {
         // conditional to check if ball is in play
-        if(!in_play)
+        if (!in_play)
         {
             transform.position = paddle.position;
         }
 
         // conditional to use spacebar to start game 
-        if(Input.GetButtonDown ("Jump") && !in_play)
+        if (Input.GetButtonDown ("Jump") && !in_play)
         {
             in_play = true;
             // force
@@ -49,11 +49,19 @@ public class Ball_Script : MonoBehaviour
     // function for bottom screen edge when ball misses paddle 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("bottom"))
+        if (other.CompareTag("bottom"))
         {
             Debug.Log("Ball hit the bottom of the screen");
             rb.velocity = Vector2.zero;
             in_play = false;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("brick"))
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
