@@ -66,6 +66,7 @@ public class Ball_Script : MonoBehaviour
         if (collision.transform.CompareTag("brick"))
         {
             Destroy(collision.gameObject);
+            GM.score += 100;
         }
     }
 }
