@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Code derived from https://www.youtube.com/watch?v=NWG8vO02oj4
 
 public class Ball_Script : MonoBehaviour
+
+
 {
     // variable for physics
     public Rigidbody2D rb;
@@ -16,8 +19,6 @@ public class Ball_Script : MonoBehaviour
     public Transform paddle;
 
     public float speed;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,9 @@ public class Ball_Script : MonoBehaviour
             Debug.Log("Ball hit the bottom of the screen");
             rb.velocity = Vector2.zero;
             in_play = false;
+
+            //Decrements life counter variable in GM script
+            GM.lives--;
         }
     }
 
@@ -62,6 +66,7 @@ public class Ball_Script : MonoBehaviour
         if (collision.transform.CompareTag("brick"))
         {
             Destroy(collision.gameObject);
+            GM.score += 100;
         }
     }
 }
