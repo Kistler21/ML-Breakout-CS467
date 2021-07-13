@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - bottom
-  - brick
+  - yellowBrick
+  - greenBrick
+  - orangeBrick
+  - redBrick
   layers:
   - Default
   - TransparentFX
