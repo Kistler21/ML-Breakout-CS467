@@ -15,10 +15,10 @@ public class Start_Menu : MonoBehaviour
         Debug.Log("Quit button pushed!");
     }
 
-    // start game function
-    public void StartGame()
+    // game modes screen function
+    public void GameModes()
     {
-        SceneManager.LoadScene("gameScene");
+        SceneManager.LoadScene("Game Modes Screen");
     }
 
     // function to go to instructions scene
@@ -31,5 +31,11 @@ public class Start_Menu : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("Start Menu");
+    }
+
+    // start game function
+    public void StartGame()
+    {
+        SceneManager.LoadScene("gameScene");
     }
 }
