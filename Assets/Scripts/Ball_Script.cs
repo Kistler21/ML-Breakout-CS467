@@ -63,10 +63,25 @@ public class Ball_Script : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("brick"))
+        if (collision.transform.CompareTag("yellowBrick"))
         {
             Destroy(collision.gameObject);
-            GM.score += 100;
+            GM.score += 1;
+        }
+        else if (collision.transform.CompareTag("greenBrick"))
+        {
+            Destroy(collision.gameObject);
+            GM.score += 3;
+        }
+        else if (collision.transform.CompareTag("orangeBrick"))
+        {
+            Destroy(collision.gameObject);
+            GM.score += 5;
+        }
+        else if (collision.transform.CompareTag("redBrick"))
+        {
+            Destroy(collision.gameObject);
+            GM.score += 7;
         }
     }
 }
