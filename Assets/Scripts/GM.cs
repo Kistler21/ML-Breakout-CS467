@@ -12,7 +12,10 @@ public class GM : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { }
+    {
+        lives = 5;
+        score = 0;
+    }
 
     // Update is called once per frame
     void Update() {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // Code derived from https://www.youtube.com/watch?v=NWG8vO02oj4
 
@@ -55,6 +56,12 @@ public class Ball_Script : MonoBehaviour
             Debug.Log("Ball hit the bottom of the screen");
             rb.velocity = Vector2.zero;
             in_play = false;
+
+            // Check if game over
+            if (GM.lives == 0)
+            {
+                SceneManager.LoadScene("Game Over");
+            }
 
             //Decrements life counter variable in GM script
             GM.lives--;
