@@ -36,6 +36,6 @@ public class Start_Menu : MonoBehaviour
     // start game function
     public void StartGame()
     {
-        SceneManager.LoadScene("gameScene");
+        SceneManager.LoadScene("Single Player");
     }
 }

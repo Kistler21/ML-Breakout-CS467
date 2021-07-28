@@ -9,6 +9,7 @@ TagManager:
   - greenBrick
   - orangeBrick
   - redBrick
+  - bricks
   layers:
   - Default
   - TransparentFX
