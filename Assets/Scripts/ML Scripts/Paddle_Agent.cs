@@ -12,17 +12,70 @@ public class Paddle_Agent : Agent
     Rigidbody2D ballRigidBody;
     public Transform ball;
     public Transform bricks;
+    public Ball_Script gameBall;
     public float speed;
     int numOfBricks;
     public GameObject bricksPrefab;
     public float rightScreenLimit;
     public float leftScreenLimit;
+    public float pad_y;
+    public float ball_y;
+    public float ballPenalty = -1f;
 
     void Start()
     {
         ballRigidBody = ball.GetComponent<Rigidbody2D>();
         numOfBricks = bricks.childCount;
+        pad_y = transform.position.y;
+        ball_y = ballRigidBody.transform.position.y;
     }
+
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        var continuousActionsOut = actionsOut.ContinuousActions;
+        continuousActionsOut[0] = Input.GetAxis("Horizontal");
+    }
+
+
+    public void Actions(float[] padActions)
+    {
+        int padSpeed = (int)10f;
+        int xNeg = (int)-7.8f;
+        int xPos = (int)7.8f;
+        int ballRelease = (int)padActions[0];
+        int leftRight = (int)padActions[1];
+
+        if (leftRight == 0)
+        {
+            transform.position += new Vector3(1 * Time.deltaTime * padSpeed, 0f, 0f);
+        }
+
+        else if (leftRight == 1)
+        {
+            transform.position += new Vector3(-1 * Time.deltaTime * padSpeed, 0f, 0f);
+        }
+
+        else
+        {
+            transform.position += new Vector3(0 * Time.deltaTime * padSpeed, 0f, 0f);
+        }
+
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, xNeg, xPos), transform.position.y, transform.position.z);
+
+        if(ballRelease == 1 && gameBall.in_play == true)
+        {
+            AddReward(1f);
+        }
+
+        else if (gameBall.in_play == false)
+        {
+            AddReward(ballPenalty);
+        }
+    }
+
+
 
     void Update()
     {
@@ -38,7 +91,9 @@ public class Paddle_Agent : Agent
             this.transform.localPosition = new Vector3(rightScreenLimit, this.transform.localPosition.y, this.transform.localPosition.z);
         }
 
+
     }
+
 
     public override void OnEpisodeBegin()
     {
@@ -52,15 +107,23 @@ public class Paddle_Agent : Agent
         ballRigidBody.AddForce(Vector2.up * speed);
     }
 
+
     public override void CollectObservations(VectorSensor sensor)
     {
         // Positions
-        sensor.AddObservation(ball.localPosition);
-        sensor.AddObservation(this.transform.localPosition);
+        // sensor.AddObservation(ball.localPosition);
+        sensor.AddObservation(ballRigidBody.position.x);
+        sensor.AddObservation(ballRigidBody.position.y);
 
-        // Ball velocity
+        // sensor.AddObservation(this.transform.localPosition);
+        sensor.AddObservation(this.transform.position.x);
+        sensor.AddObservation(this.transform.position.y);
+
+        /* Ball velocity
         sensor.AddObservation(ballRigidBody.velocity.x);
         sensor.AddObservation(ballRigidBody.velocity.y);
+        */
+        sensor.AddObservation(ballRigidBody.angularVelocity / 360f);
 
         // Number of bricks left
         sensor.AddObservation(bricks.childCount);
@@ -86,6 +149,7 @@ public class Paddle_Agent : Agent
             sensor.AddObservation(Vector3.zero);
         }
     }
+
 
     public float paddleSpeed = 10;
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -114,9 +178,6 @@ public class Paddle_Agent : Agent
         }
     }
 
-    public override void Heuristic(in ActionBuffers actionsOut)
-    {
-        var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = Input.GetAxis("Horizontal");
-    }
 }
+
+

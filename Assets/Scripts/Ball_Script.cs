@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 // Code derived from https://www.youtube.com/watch?v=NWG8vO02oj4
 
 public class Ball_Script : MonoBehaviour
-
-
 {
+    public Paddle_Agent paddle_agent;
+
     // variable for physics
     public Rigidbody2D rb;
 
@@ -26,7 +26,6 @@ public class Ball_Script : MonoBehaviour
     {
         // initializing variable
         rb = GetComponent<Rigidbody2D> ();
-
 
     }
 
@@ -68,27 +67,32 @@ public class Ball_Script : MonoBehaviour
         }
     }
 
+    // Function for bricks/destroyed bricks
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("yellowBrick"))
         {
             Destroy(collision.gameObject);
             GM.score += 1;
+            paddle_agent.AddReward(1f);
         }
         else if (collision.transform.CompareTag("greenBrick"))
         {
             Destroy(collision.gameObject);
             GM.score += 3;
+            paddle_agent.AddReward(1f);
         }
         else if (collision.transform.CompareTag("orangeBrick"))
         {
             Destroy(collision.gameObject);
             GM.score += 5;
+            paddle_agent.AddReward(1f);
         }
         else if (collision.transform.CompareTag("redBrick"))
         {
             Destroy(collision.gameObject);
             GM.score += 7;
+            paddle_agent.AddReward(1f);
         }
     }
 }

@@ -660,5 +660,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243895, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: leftScreenLimit
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243895, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: rightScreenLimit
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120690814783243897, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5255a4c35ef0fe642bac4e8076fd4c52, type: 3}
