@@ -1,0 +1,65 @@
+{
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.9.0+cpu"
+    },
+    "PaddleAgent": {
+        "checkpoints": [
+            {
+                "steps": 185916,
+                "file_path": "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-185916.onnx",
+                "reward": 1.0,
+                "creation_time": 1627610156.83214,
+                "auxillary_file_paths": [
+                    "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-185916.pt"
+                ]
+            },
+            {
+                "steps": 186515,
+                "file_path": "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-186515.onnx",
+                "reward": 3.0,
+                "creation_time": 1627610606.3621986,
+                "auxillary_file_paths": [
+                    "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-186515.pt"
+                ]
+            },
+            {
+                "steps": 186579,
+                "file_path": "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-186579.onnx",
+                "reward": 1.0,
+                "creation_time": 1627610627.6681504,
+                "auxillary_file_paths": [
+                    "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-186579.pt"
+                ]
+            },
+            {
+                "steps": 190699,
+                "file_path": "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-190699.onnx",
+                "reward": null,
+                "creation_time": 1627610697.7650104,
+                "auxillary_file_paths": [
+                    "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-190699.pt"
+                ]
+            },
+            {
+                "steps": 191826,
+                "file_path": "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-191826.onnx",
+                "reward": null,
+                "creation_time": 1627610744.3922257,
+                "auxillary_file_paths": [
+                    "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-191826.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 191826,
+            "file_path": "results\\PaddleAgent\\PaddleAgent.onnx",
+            "reward": null,
+            "creation_time": 1627610744.3922257,
+            "auxillary_file_paths": [
+                "results\\PaddleAgent\\PaddleAgent\\PaddleAgent-191826.pt"
+            ]
+        }
+    }
+}

@@ -13,6 +13,7 @@ public class Paddle_Script : MonoBehaviour
     // variables for edges of screen to prevent paddle from going off screen
     public float rightScreenLimit;
     public float leftScreenLimit;
+    internal Vector3 position;
 
 
     // Start is called before the first frame update
