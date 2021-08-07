@@ -38,4 +38,10 @@ public class Start_Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Single Player");
     }
+
+    //start vs mode
+    public void VSMode()
+    {
+        SceneManager.LoadScene("VS Mode");
+    }
 }
