@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 287947774}
   - component: {fileID: 287947773}
   - component: {fileID: 287947772}
+  - component: {fileID: 287947775}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -314,8 +315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rightScreenLimit: 7.8
-  leftScreenLimit: -7.8
+  rightScreenLimit: 31.5
+  leftScreenLimit: 15.5
 --- !u!212 &287947774
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -368,6 +369,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &287947775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287947770}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0099a35444f6e6478afe9f7379118ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  rightScreenLimit: -7.8
+  leftScreenLimit: 7.8
+  midScreenLimit: 0
 --- !u!1 &299082318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,8 +1909,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1428169577}
   - component: {fileID: 1428169580}
-  - component: {fileID: 1428169579}
   - component: {fileID: 1428169578}
+  - component: {fileID: 1428169579}
+  - component: {fileID: 1428169581}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -1954,14 +1972,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428169576}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d07ac6d06ee99d140bb3ba587da4710f, type: 3}
+  m_Script: {fileID: 11500000, guid: d0099a35444f6e6478afe9f7379118ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rightScreenLimit: 7.8
-  leftScreenLimit: -7.8
+  rightScreenLimit: 10
+  leftScreenLimit: -10
+  midScreenLimit: 0
 --- !u!212 &1428169580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2014,6 +2033,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1428169581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428169576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d07ac6d06ee99d140bb3ba587da4710f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  rightScreenLimit: 12
+  leftScreenLimit: -4
 --- !u!1 &1474408263
 GameObject:
   m_ObjectHideFlags: 0
