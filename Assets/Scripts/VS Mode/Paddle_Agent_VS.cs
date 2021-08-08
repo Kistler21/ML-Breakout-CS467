@@ -7,7 +7,7 @@ using Unity.MLAgents.Actuators;
 
 // Code referenced from https://www.youtube.com/watch?v=zPFU30tbyKs
 
-public class Paddle_Agent : Agent
+public class Paddle_Agent_VS : Agent
 {
     Rigidbody2D paddleRigidBody;
     Rigidbody2D ballRigidBody;
@@ -16,7 +16,7 @@ public class Paddle_Agent : Agent
     public GameObject bricksPrefab;
     public float rightScreenLimit;
     public float leftScreenLimit;
-    public Ball_Target ball_target;
+    public Ball_Target_VS ball_target;
     public GM gm;
     public float paddleSpeed = 10;
     public bool isTraining = false;
@@ -31,23 +31,6 @@ public class Paddle_Agent : Agent
     void Start()
     {
         ballRigidBody = ball.GetComponent<Rigidbody2D>();
-    }
-
-    public override void OnEpisodeBegin()
-    {
-        if (bricks.childCount == 0 || gm.lives == 0)
-        {
-            Destroy(bricks.gameObject);
-            gm.lives = 5;
-            gm.score = 0;
-
-            bricks = Instantiate(
-                bricksPrefab,
-                this.transform.parent.localPosition + new Vector3(-4.11533f, -1.78937f, 0),
-                Quaternion.identity,
-                this.transform.parent
-            ).transform;
-        }
     }
 
     public override void CollectObservations(VectorSensor sensor)

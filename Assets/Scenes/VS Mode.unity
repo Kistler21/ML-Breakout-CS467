@@ -501,10 +501,92 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6471476765725035649, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
       propertyPath: m_Name
-      value: TrainingArea
+      value: Computer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6471476766740573454, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+    - {fileID: 6471476764688103151, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+--- !u!114 &890808739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1773173960, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+  m_PrefabInstance: {fileID: 890808738}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ceb3042ad280540be7cb6661d879bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &890808740 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6471476764635732621, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+  m_PrefabInstance: {fileID: 890808738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &890808741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6471476764688103145, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+  m_PrefabInstance: {fileID: 890808738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &890808742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6471476764688103147, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+  m_PrefabInstance: {fileID: 890808738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &890808743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6471476766740573449, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+  m_PrefabInstance: {fileID: 890808738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &890808744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6471476766457082295, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+  m_PrefabInstance: {fileID: 890808738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &890808745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890808742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618e9617073066d49b551b8f0f644dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  in_play: 0
+  paddle: {fileID: 890808744}
+  speed: 400
+  paddleAgent: {fileID: 890808746}
+  gm: {fileID: 890808739}
+  playerGM: {fileID: 934875043}
+  isInputEnabled: 1
+--- !u!114 &890808746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890808743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c15651120dc3c49a28deb8d9a4c1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  ball: {fileID: 890808741}
+  bricks: {fileID: 890808740}
+  bricksPrefab: {fileID: 3790311731724794144, guid: 33f7b225d6e780f4ba31ef4beb2adb84, type: 3}
+  rightScreenLimit: 3.68467
+  leftScreenLimit: -11.91533
+  ball_target: {fileID: 890808745}
+  gm: {fileID: 890808739}
+  paddleSpeed: 10
+  isTraining: 0
 --- !u!1 &932829172
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,13 +841,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053477546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ead99f186cc5644a114c4c7f6fa007, type: 3}
+  m_Script: {fileID: 11500000, guid: 721dd41d71f998f499f13f639b7bc300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   in_play: 0
   paddle: {fileID: 2133900087}
   speed: 400
   gm: {fileID: 934875043}
+  computerGM: {fileID: 890808739}
+  isInputEnabled: 1
 --- !u!58 &1053477549
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1044,7 +1128,7 @@ GameObject:
   - component: {fileID: 1428169577}
   - component: {fileID: 1428169580}
   - component: {fileID: 1428169578}
-  - component: {fileID: 1428169581}
+  - component: {fileID: 1428169579}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -1098,6 +1182,21 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.5}
+--- !u!114 &1428169579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428169576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e33b1003c802f4488d0c3eb3668fd50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  rightScreenLimit: 12
+  leftScreenLimit: -4
 --- !u!212 &1428169580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1150,21 +1249,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1428169581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428169576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d07ac6d06ee99d140bb3ba587da4710f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  rightScreenLimit: 12
-  leftScreenLimit: -4
 --- !u!4 &1483153716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6471476765725035648, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
