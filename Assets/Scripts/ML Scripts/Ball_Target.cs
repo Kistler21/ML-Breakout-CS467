@@ -72,7 +72,14 @@ public class Ball_Target : MonoBehaviour
 
             if (gm.lives == 0)
             {
-                paddleAgent.EndEpisode();
+                if (paddleAgent.isTraining)
+                {
+                    paddleAgent.EndEpisode();
+                }
+                else
+                {
+                    SceneManager.LoadScene("Game Over");
+                }
             }
         }
     }

@@ -19,6 +19,7 @@ public class Paddle_Agent : Agent
     public Ball_Target ball_target;
     public GM gm;
     public float paddleSpeed = 10;
+    public bool isTraining = false;
 
     // Set rewards/penalties for learning - [-1, 1] range for values
     float ballMissedPenalty = -1.0f;
