@@ -1,1 +1,117 @@
-{"count":1,"self":52.2579456,"total":216.2002392,"children":{"InitializeActuators":{"count":10,"self":0.00098209999999999986,"total":0.00098209999999999986,"children":null},"InitializeSensors":{"count":10,"self":0.0009484,"total":0.0009484,"children":null},"AgentSendState":{"count":63301,"self":0.36420729999999996,"total":1.6364337,"children":{"CollectObservations":{"count":63310,"self":0.1302568,"total":0.1302568,"children":null},"WriteActionMask":{"count":63310,"self":0.049152,"total":0.049152,"children":null},"RequestDecision":{"count":63310,"self":0.1845369,"total":1.0928176,"children":{"AgentInfo.ToProto":{"count":63310,"self":0.2200046,"total":0.90828069999999994,"children":{"GenerateSensorData":{"count":63310,"self":0.6882761,"total":0.6882761,"children":null}}}}}}},"DecideAction":{"count":63301,"self":160.73612799999998,"total":160.73612509999998,"children":null},"AgentAct":{"count":63301,"self":1.557863,"total":1.5613025999999999,"children":{"AgentInfo.ToProto":{"count":41,"self":0.0004982,"total":0.0034395999999999997,"children":{"GenerateSensorData":{"count":41,"self":0.0029414,"total":0.0029414,"children":null}}}}},"AgentInfo.ToProto":{"count":50,"self":0,"total":0.0015018,"children":{"GenerateSensorData":{"count":50,"self":0.0015018,"total":0.0015018,"children":null}}}},"gauges":{"PaddleAgent.CumulativeReward":{"count":91,"max":1157.512,"min":31.8498669,"runningAverage":389.528076,"value":94.80122,"weightedAverage":410.400757}},"metadata":{"timer_format_version":"0.1.0","start_time_seconds":"1628455133","unity_version":"2021.1.10f1","command_line_arguments":"C:\\Program Files\\Unity\\Hub\\Editor\\2021.1.10f1\\Editor\\Unity.exe -projectpath C:\/Users\/micha\/Documents\/oregonstate\/cs467\/ML Breakout\/ML Breakout -useHub -hubIPC -cloudEnvironment production -hubSessionId 69a88600-f6ce-11eb-8873-8d3d0968aad0 -accessToken dYT_tBLr9FHPAG58ijZPI6u_t_bmNAmDfmyB1Z_SV94002f","communication_protocol_version":"1.5.0","com.unity.ml-agents_version":"2.1.0-exp.1","scene_name":"ML Mode","end_time_seconds":"1628455349"}}
+{
+    "count": 1,
+    "self": 52.2579456,
+    "total": 216.2002392,
+    "children": {
+        "InitializeActuators": {
+            "count": 10,
+            "self": 0.00098209999999999986,
+            "total": 0.00098209999999999986,
+            "children": null
+        },
+        "InitializeSensors": {
+            "count": 10,
+            "self": 0.0009484,
+            "total": 0.0009484,
+            "children": null
+        },
+        "AgentSendState": {
+            "count": 63301,
+            "self": 0.36420729999999996,
+            "total": 1.6364337,
+            "children": {
+                "CollectObservations": {
+                    "count": 63310,
+                    "self": 0.1302568,
+                    "total": 0.1302568,
+                    "children": null
+                },
+                "WriteActionMask": {
+                    "count": 63310,
+                    "self": 0.049152,
+                    "total": 0.049152,
+                    "children": null
+                },
+                "RequestDecision": {
+                    "count": 63310,
+                    "self": 0.1845369,
+                    "total": 1.0928176,
+                    "children": {
+                        "AgentInfo.ToProto": {
+                            "count": 63310,
+                            "self": 0.2200046,
+                            "total": 0.90828069999999994,
+                            "children": {
+                                "GenerateSensorData": {
+                                    "count": 63310,
+                                    "self": 0.6882761,
+                                    "total": 0.6882761,
+                                    "children": null
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "DecideAction": {
+            "count": 63301,
+            "self": 160.73612799999998,
+            "total": 160.73612509999998,
+            "children": null
+        },
+        "AgentAct": {
+            "count": 63301,
+            "self": 1.557863,
+            "total": 1.5613025999999999,
+            "children": {
+                "AgentInfo.ToProto": {
+                    "count": 41,
+                    "self": 0.0004982,
+                    "total": 0.0034395999999999997,
+                    "children": {
+                        "GenerateSensorData": {
+                            "count": 41,
+                            "self": 0.0029414,
+                            "total": 0.0029414,
+                            "children": null
+                        }
+                    }
+                }
+            }
+        },
+        "AgentInfo.ToProto": {
+            "count": 50,
+            "self": 0,
+            "total": 0.0015018,
+            "children": {
+                "GenerateSensorData": {
+                    "count": 50,
+                    "self": 0.0015018,
+                    "total": 0.0015018,
+                    "children": null
+                }
+            }
+        }
+    },
+    "gauges": {
+        "PaddleAgent.CumulativeReward": {
+            "count": 91,
+            "max": 1157.512,
+            "min": 31.8498669,
+            "runningAverage": 389.528076,
+            "value": 94.80122,
+            "weightedAverage": 410.400757
+        }
+    },
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1628455133",
+        "unity_version": "2021.1.10f1",
+        "command_line_arguments": "C:\\Program Files\\Unity\\Hub\\Editor\\2021.1.10f1\\Editor\\Unity.exe -projectpath C:\/Users\/micha\/Documents\/oregonstate\/cs467\/ML Breakout\/ML Breakout -useHub -hubIPC -cloudEnvironment production -hubSessionId 69a88600-f6ce-11eb-8873-8d3d0968aad0 -accessToken dYT_tBLr9FHPAG58ijZPI6u_t_bmNAmDfmyB1Z_SV94002f",
+        "communication_protocol_version": "1.5.0",
+        "com.unity.ml-agents_version": "2.1.0-exp.1",
+        "scene_name": "ML Mode",
+        "end_time_seconds": "1628455349"
+    }
+}

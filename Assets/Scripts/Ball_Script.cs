@@ -26,12 +26,12 @@ public class Ball_Script : MonoBehaviour
     {
         // initializing variable
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        int RandNum = Random.Range(0, 2);
         // conditional to check if ball is in play
         if (!in_play)
         {
@@ -43,7 +43,18 @@ public class Ball_Script : MonoBehaviour
         {
             in_play = true;
             // force
-            rb.AddForce(Vector2.up * speed);
+            //rb.AddForce(Vector2.up * speed);
+
+            //send ball in random direction (left or right)
+
+            if (RandNum == 0)
+            {
+                rb.AddForce((Vector2.up + Vector2.left) * speed / 2);
+            }
+            else
+            {
+                rb.AddForce((Vector2.up + Vector2.right) * speed / 2);
+            }
         }
     }
 

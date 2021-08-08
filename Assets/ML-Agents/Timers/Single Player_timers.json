@@ -1,1 +1,76 @@
-{"count":1,"self":616.9300992,"total":617.1060747,"children":{"InitializeActuators":{"count":10,"self":0.0060003999999999995,"total":0.0060003999999999995,"children":null},"InitializeSensors":{"count":10,"self":0.0030053,"total":0.0030053,"children":null},"AgentSendState":{"count":3000,"self":0.0367243,"total":0.0467673,"children":{"CollectObservations":{"count":3000,"self":0.0059673999999999994,"total":0.0059673999999999994,"children":null},"WriteActionMask":{"count":3000,"self":0.0020338,"total":0.0020338,"children":null},"RequestDecision":{"count":3000,"self":0.0020418,"total":0.0020418,"children":null}}},"DecideAction":{"count":3000,"self":0.0380188,"total":0.0380188,"children":null},"AgentAct":{"count":3000,"self":0.0821996,"total":0.0821996,"children":null}},"gauges":{"PaddleAgent.CumulativeReward":{"count":20,"max":19,"min":-1075.60535,"runningAverage":-152.827408,"value":-1075.60535,"weightedAverage":-441.012817}},"metadata":{"timer_format_version":"0.1.0","start_time_seconds":"1628267129","unity_version":"2021.1.10f1","command_line_arguments":"C:\\Program Files\\Unity\\Hub\\Editor\\2021.1.10f1\\Editor\\Unity.exe -projectpath C:\/Users\/micha\/Documents\/oregonstate\/cs467\/ML Breakout\/ML Breakout -useHub -hubIPC -cloudEnvironment production -hubSessionId 69a88600-f6ce-11eb-8873-8d3d0968aad0 -accessToken dYT_tBLr9FHPAG58ijZPI6u_t_bmNAmDfmyB1Z_SV94002f","communication_protocol_version":"1.5.0","com.unity.ml-agents_version":"2.1.0-exp.1","scene_name":"Single Player","end_time_seconds":"1628267746"}}
+{
+    "count": 1,
+    "self": 616.9300992,
+    "total": 617.1060747,
+    "children": {
+        "InitializeActuators": {
+            "count": 10,
+            "self": 0.0060003999999999995,
+            "total": 0.0060003999999999995,
+            "children": null
+        },
+        "InitializeSensors": {
+            "count": 10,
+            "self": 0.0030053,
+            "total": 0.0030053,
+            "children": null
+        },
+        "AgentSendState": {
+            "count": 3000,
+            "self": 0.0367243,
+            "total": 0.0467673,
+            "children": {
+                "CollectObservations": {
+                    "count": 3000,
+                    "self": 0.0059673999999999994,
+                    "total": 0.0059673999999999994,
+                    "children": null
+                },
+                "WriteActionMask": {
+                    "count": 3000,
+                    "self": 0.0020338,
+                    "total": 0.0020338,
+                    "children": null
+                },
+                "RequestDecision": {
+                    "count": 3000,
+                    "self": 0.0020418,
+                    "total": 0.0020418,
+                    "children": null
+                }
+            }
+        },
+        "DecideAction": {
+            "count": 3000,
+            "self": 0.0380188,
+            "total": 0.0380188,
+            "children": null
+        },
+        "AgentAct": {
+            "count": 3000,
+            "self": 0.0821996,
+            "total": 0.0821996,
+            "children": null
+        }
+    },
+    "gauges": {
+        "PaddleAgent.CumulativeReward": {
+            "count": 20,
+            "max": 19,
+            "min": -1075.60535,
+            "runningAverage": -152.827408,
+            "value": -1075.60535,
+            "weightedAverage": -441.012817
+        }
+    },
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1628267129",
+        "unity_version": "2021.1.10f1",
+        "command_line_arguments": "C:\\Program Files\\Unity\\Hub\\Editor\\2021.1.10f1\\Editor\\Unity.exe -projectpath C:\/Users\/micha\/Documents\/oregonstate\/cs467\/ML Breakout\/ML Breakout -useHub -hubIPC -cloudEnvironment production -hubSessionId 69a88600-f6ce-11eb-8873-8d3d0968aad0 -accessToken dYT_tBLr9FHPAG58ijZPI6u_t_bmNAmDfmyB1Z_SV94002f",
+        "communication_protocol_version": "1.5.0",
+        "com.unity.ml-agents_version": "2.1.0-exp.1",
+        "scene_name": "Single Player",
+        "end_time_seconds": "1628267746"
+    }
+}
