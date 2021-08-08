@@ -8,10 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class Ball_Script : MonoBehaviour
 {
-    public Paddle_Agent paddle_agent;
-
     // variable for physics
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
 
     // variable for if ball is in play
     public bool in_play;
@@ -21,11 +19,13 @@ public class Ball_Script : MonoBehaviour
 
     public float speed;
 
+    public GM gm;
+
     // Start is called before the first frame update
     void Start()
     {
         // initializing variable
-        rb = GetComponent<Rigidbody2D> ();
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
@@ -39,7 +39,7 @@ public class Ball_Script : MonoBehaviour
         }
 
         // conditional to use spacebar to start game 
-        if (Input.GetButtonDown ("Jump") && !in_play)
+        if (Input.GetButtonDown("Jump") && !in_play)
         {
             in_play = true;
             // force
@@ -56,14 +56,15 @@ public class Ball_Script : MonoBehaviour
             rb.velocity = Vector2.zero;
             in_play = false;
 
+            //Decrements life counter variable in GM script
+            gm.decreaseLives();
+
             // Check if game over
-            if (GM.lives == 0)
+            if (gm.lives == 0)
             {
+                PlayerPrefs.SetInt("score", gm.score);
                 SceneManager.LoadScene("Game Over");
             }
-
-            //Decrements life counter variable in GM script
-            GM.lives--;
         }
     }
 
@@ -73,26 +74,22 @@ public class Ball_Script : MonoBehaviour
         if (collision.transform.CompareTag("yellowBrick"))
         {
             Destroy(collision.gameObject);
-            GM.score += 1;
-            paddle_agent.AddReward(1f);
+            gm.updateScore(1);
         }
         else if (collision.transform.CompareTag("greenBrick"))
         {
             Destroy(collision.gameObject);
-            GM.score += 3;
-            paddle_agent.AddReward(1f);
+            gm.updateScore(3);
         }
         else if (collision.transform.CompareTag("orangeBrick"))
         {
             Destroy(collision.gameObject);
-            GM.score += 5;
-            paddle_agent.AddReward(1f);
+            gm.updateScore(5);
         }
         else if (collision.transform.CompareTag("redBrick"))
         {
             Destroy(collision.gameObject);
-            GM.score += 7;
-            paddle_agent.AddReward(1f);
+            gm.updateScore(7);
         }
     }
 }

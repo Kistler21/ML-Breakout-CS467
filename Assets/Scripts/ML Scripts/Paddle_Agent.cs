@@ -9,175 +9,145 @@ using Unity.MLAgents.Actuators;
 
 public class Paddle_Agent : Agent
 {
+    Rigidbody2D paddleRigidBody;
     Rigidbody2D ballRigidBody;
     public Transform ball;
     public Transform bricks;
-    public Ball_Script gameBall;
-    public float speed;
-    int numOfBricks;
     public GameObject bricksPrefab;
     public float rightScreenLimit;
     public float leftScreenLimit;
-    public float pad_y;
-    public float ball_y;
-    public float ballPenalty = -1f;
+    public Ball_Target ball_target;
+    public GM gm;
+    public float paddleSpeed = 10;
+
+    // Set rewards/penalties for learning - [-1, 1] range for values
+    float ballMissedPenalty = -1.0f;
+    float ballHeldPenalty = -0.05f;
+    float ballInPlayReward = 0.05f;
+    float brickDestroyedReward = 1.0f;
+    float ballDeflectedReward = 1.0f;
 
     void Start()
     {
         ballRigidBody = ball.GetComponent<Rigidbody2D>();
-        numOfBricks = bricks.childCount;
-        pad_y = transform.position.y;
-        ball_y = ballRigidBody.transform.position.y;
     }
-
-
-    public override void Heuristic(in ActionBuffers actionsOut)
-    {
-        var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = Input.GetAxis("Horizontal");
-    }
-
-
-    public void Actions(float[] padActions)
-    {
-        int padSpeed = (int)10f;
-        int xNeg = (int)-7.8f;
-        int xPos = (int)7.8f;
-        int ballRelease = (int)padActions[0];
-        int leftRight = (int)padActions[1];
-
-        if (leftRight == 0)
-        {
-            transform.position += new Vector3(1 * Time.deltaTime * padSpeed, 0f, 0f);
-        }
-
-        else if (leftRight == 1)
-        {
-            transform.position += new Vector3(-1 * Time.deltaTime * padSpeed, 0f, 0f);
-        }
-
-        else
-        {
-            transform.position += new Vector3(0 * Time.deltaTime * padSpeed, 0f, 0f);
-        }
-
-
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, xNeg, xPos), transform.position.y, transform.position.z);
-
-        if(ballRelease == 1 && gameBall.in_play == true)
-        {
-            AddReward(1f);
-        }
-
-        else if (gameBall.in_play == false)
-        {
-            AddReward(ballPenalty);
-        }
-    }
-
-
-
-    void Update()
-    {
-        // if stmnt to prevent paddle from passing screen edge on left
-        if (this.transform.localPosition.x < leftScreenLimit)
-        {
-            this.transform.localPosition = new Vector3(leftScreenLimit, this.transform.localPosition.y, this.transform.localPosition.z);
-        }
-
-        // if stmnt to prevent paddle from passing screen edge on right
-        if (this.transform.localPosition.x > rightScreenLimit)
-        {
-            this.transform.localPosition = new Vector3(rightScreenLimit, this.transform.localPosition.y, this.transform.localPosition.z);
-        }
-
-
-    }
-
 
     public override void OnEpisodeBegin()
     {
-        if (numOfBricks == 0)
+        if (bricks.childCount == 0 || gm.lives == 0)
         {
-            bricks = Instantiate(bricksPrefab, new Vector3(0, 0, 0), Quaternion.identity, this.transform.parent).transform;
-            numOfBricks = bricks.childCount;
-        }
-        ballRigidBody.velocity = Vector2.zero;
-        ball.localPosition = this.transform.localPosition + new Vector3(0, 0.1f, 0);
-        ballRigidBody.AddForce(Vector2.up * speed);
-    }
+            Destroy(bricks.gameObject);
+            gm.lives = 5;
+            gm.score = 0;
 
+            bricks = Instantiate(
+                bricksPrefab,
+                this.transform.parent.localPosition + new Vector3(-4.11533f, -1.78937f, 0),
+                Quaternion.identity,
+                this.transform.parent
+            ).transform;
+        }
+    }
 
     public override void CollectObservations(VectorSensor sensor)
     {
         // Positions
         // sensor.AddObservation(ball.localPosition);
-        sensor.AddObservation(ballRigidBody.position.x);
-        sensor.AddObservation(ballRigidBody.position.y);
+        sensor.AddObservation(ball.localPosition.x);
+        sensor.AddObservation(ball.localPosition.y);
 
         // sensor.AddObservation(this.transform.localPosition);
-        sensor.AddObservation(this.transform.position.x);
-        sensor.AddObservation(this.transform.position.y);
+        sensor.AddObservation(this.transform.localPosition.x);
+        sensor.AddObservation(this.transform.localPosition.y);
 
-        /* Ball velocity
+        // Ball velocity
         sensor.AddObservation(ballRigidBody.velocity.x);
         sensor.AddObservation(ballRigidBody.velocity.y);
-        */
-        sensor.AddObservation(ballRigidBody.angularVelocity / 360f);
+    }
 
-        // Number of bricks left
-        sensor.AddObservation(bricks.childCount);
+    public override void OnActionReceived(ActionBuffers actionBuffers)
+    {
+        // Actions, size = 2
+        int releaseBall = actionBuffers.DiscreteActions[0];
+        int paddleMovement = actionBuffers.DiscreteActions[1];
 
-        if (numOfBricks > 0)
+        if (releaseBall == 1)
         {
-            // Direction to closest brick
-            Transform closestBrick = bricks.GetChild(0);
-            float distanceToClosestBrick = Vector3.Distance(this.transform.localPosition, closestBrick.localPosition);
-            for (var i = 1; i < bricks.childCount; i++)
-            {
-                if (distanceToClosestBrick > Vector3.Distance(this.transform.localPosition, bricks.GetChild(i).localPosition))
-                {
-                    closestBrick = bricks.GetChild(i);
-                    distanceToClosestBrick = Vector3.Distance(this.transform.localPosition, closestBrick.localPosition);
-                }
-            }
-            Vector3 directionToClosestBrick = this.transform.localPosition - closestBrick.localPosition;
-            sensor.AddObservation(directionToClosestBrick);
+            ball_target.playBall();
+        }
+
+        if (paddleMovement == 0)
+        {
+            this.transform.Translate(1 * paddleSpeed * Time.deltaTime, 0, 0);
+        }
+        else if (paddleMovement == 1)
+        {
+            this.transform.Translate(-1 * paddleSpeed * Time.deltaTime, 0, 0);
         }
         else
         {
-            sensor.AddObservation(Vector3.zero);
-        }
-    }
-
-
-    public float paddleSpeed = 10;
-    public override void OnActionReceived(ActionBuffers actionBuffers)
-    {
-        // Actions, size = 1
-        Vector3 controlSignal = Vector3.zero;
-        controlSignal.x = actionBuffers.ContinuousActions[0];
-        this.transform.Translate(controlSignal * paddleSpeed * Time.deltaTime);
-
-        if (bricks.childCount < numOfBricks)
-        {
-            SetReward(0.5f * (numOfBricks - bricks.childCount));
-            numOfBricks = bricks.childCount;
-            if (numOfBricks == 0)
-            {
-                EndEpisode();
-            }
+            this.transform.Translate(0, 0, 0);
         }
 
-        if (ball.localPosition.y < this.transform.localPosition.y - 1 ||
-            (ball.localPosition.x > 10 || ball.localPosition.x < -10) ||
-            ball.localPosition.y > 4.5)
+        this.transform.localPosition = new Vector3(
+            Mathf.Clamp(this.transform.localPosition.x, leftScreenLimit, rightScreenLimit),
+            this.transform.localPosition.y,
+            this.transform.localPosition.z
+        );
+
+        if (!ball_target.in_play)
         {
-            SetReward(-1.0f);
+            AddReward(ballHeldPenalty);
+        }
+        else
+        {
+            AddReward(ballInPlayReward);
+        }
+
+        if (bricks.childCount == 0)
+        {
             EndEpisode();
         }
     }
 
+    public void ballMissed()
+    {
+        AddReward(ballMissedPenalty);
+        EndEpisode();
+    }
+
+    public void brickDestroyed()
+    {
+        AddReward(brickDestroyedReward);
+    }
+
+    public void ballDeflected()
+    {
+        AddReward(ballDeflectedReward);
+    }
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        var actions = actionsOut.DiscreteActions;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            actions[0] = 1;
+        }
+
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            actions[1] = 0;
+        }
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            actions[1] = 1;
+        }
+        else
+        {
+            actions[1] = 2;
+        }
+    }
 }
 
 
