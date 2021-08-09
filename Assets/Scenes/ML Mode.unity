@@ -217,6 +217,42 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1219546692, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Text
+      value: 'Lives:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219546692, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219546692, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219546692, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.39607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709244675, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Text
+      value: 'Score: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709244675, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709244675, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709244675, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822132827382558355, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_Text
+      value: 'Level:'
+      objectReference: {fileID: 0}
     - target: {fileID: 3308375195579183180, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
@@ -237,6 +273,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6471476764688103151, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: explosionRed
+      value: 
+      objectReference: {fileID: 9216816527533005570, guid: 6ec22431addb3e34b9866f8bba3b21d3, type: 3}
+    - target: {fileID: 6471476764688103151, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: explosionGreen
+      value: 
+      objectReference: {fileID: 4196841393139996118, guid: b267ff4de917dfe45b3eeb450b7b5bf4, type: 3}
+    - target: {fileID: 6471476764688103151, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: explosionOrange
+      value: 
+      objectReference: {fileID: 7008624063594817409, guid: 214ca08a91b14ea45b1745f287410ed6, type: 3}
+    - target: {fileID: 6471476764688103151, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: explosionYellow
+      value: 
+      objectReference: {fileID: 6165644736235203511, guid: 691f2dc6479036e4e97965d9636ae4ef, type: 3}
     - target: {fileID: 6471476765725035648, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
       propertyPath: m_RootOrder
       value: 1

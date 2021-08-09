@@ -28,6 +28,8 @@ public class Ball_VS : MonoBehaviour
     public Transform bricks;
 
     public GameObject bricksPrefab;
+    public Transform explosionRed, explosionYellow, explosionGreen, explosionOrange;
+
 
     // Start is called before the first frame update
     void Start()
@@ -126,21 +128,29 @@ public class Ball_VS : MonoBehaviour
     {
         if (collision.transform.CompareTag("yellowBrick"))
         {
+            Transform newExplosion = Instantiate(explosionYellow, transform.position, transform.rotation);
+            Destroy(newExplosion.gameObject, 2.0f);
             Destroy(collision.gameObject);
             gm.updateScore(1);
         }
         else if (collision.transform.CompareTag("greenBrick"))
         {
+            Transform newExplosion = Instantiate(explosionGreen, transform.position, transform.rotation);
+            Destroy(newExplosion.gameObject, 2.0f);
             Destroy(collision.gameObject);
             gm.updateScore(3);
         }
         else if (collision.transform.CompareTag("orangeBrick"))
         {
+            Transform newExplosion = Instantiate(explosionOrange, transform.position, transform.rotation);
+            Destroy(newExplosion.gameObject, 2.0f);
             Destroy(collision.gameObject);
             gm.updateScore(5);
         }
         else if (collision.transform.CompareTag("redBrick"))
         {
+            Transform newExplosion = Instantiate(explosionRed, transform.position, transform.rotation);
+            Destroy(newExplosion.gameObject, 2.0f);
             Destroy(collision.gameObject);
             gm.updateScore(7);
         }

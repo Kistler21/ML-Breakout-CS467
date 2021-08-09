@@ -35,26 +35,26 @@ public class GM : MonoBehaviour
         _score = 0;
         _level = 1;
 
-        score_text.text = $"SCORE: {_score}";
-        lives_text.text = $"LIVES: {_lives}";
-        level_text.text = $"LEVEL: {_level}";
+        score_text.text = $"Score: {_score}";
+        lives_text.text = $"Lives: {_lives}";
+        level_text.text = $"Level: {_level}";
     }
 
     public void updateScore(int value)
     {
         _score += value;
-        score_text.text = $"SCORE: {_score}";
+        score_text.text = $"Score: {_score}";
     }
 
     public void decreaseLives()
     {
         _lives--;
-        lives_text.text = $"LIVES: {_lives}";
+        lives_text.text = $"Lives: {_lives}";
     }
 
     public void increaseLevel()
     {
         _level++;
-        level_text.text = $"LEVEL: {_level}";
+        level_text.text = $"Level: {_level}";
     }
 }

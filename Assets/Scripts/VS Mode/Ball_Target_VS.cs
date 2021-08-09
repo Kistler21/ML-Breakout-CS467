@@ -22,6 +22,7 @@ public class Ball_Target_VS : MonoBehaviour
     public GM gm;
     public GM playerGM;
     public bool isInputEnabled = true;
+    public Transform explosionRed, explosionYellow, explosionGreen, explosionOrange;
 
     // Start is called before the first frame update
     void Start()
@@ -105,24 +106,32 @@ public class Ball_Target_VS : MonoBehaviour
     {
         if (collision.transform.CompareTag("yellowBrick"))
         {
+            Transform newExplosion = Instantiate(explosionYellow, transform.position, transform.rotation);
+            Destroy(newExplosion.gameObject, 2.0f);
             Destroy(collision.gameObject);
             gm.updateScore(1);
             paddleAgent.brickDestroyed();
         }
         else if (collision.transform.CompareTag("greenBrick"))
         {
+            Transform newExplosion = Instantiate(explosionGreen, transform.position, transform.rotation);
+            Destroy(newExplosion.gameObject, 2.0f);
             Destroy(collision.gameObject);
             gm.updateScore(3);
             paddleAgent.brickDestroyed();
         }
         else if (collision.transform.CompareTag("orangeBrick"))
         {
+            Transform newExplosion = Instantiate(explosionOrange, transform.position, transform.rotation);
+            Destroy(newExplosion.gameObject, 2.0f);
             Destroy(collision.gameObject);
             gm.updateScore(5);
             paddleAgent.brickDestroyed();
         }
         else if (collision.transform.CompareTag("redBrick"))
         {
+            Transform newExplosion = Instantiate(explosionRed, transform.position, transform.rotation);
+            Destroy(newExplosion.gameObject, 2.0f);
             Destroy(collision.gameObject);
             gm.updateScore(7);
             paddleAgent.brickDestroyed();
