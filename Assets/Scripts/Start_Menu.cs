@@ -39,6 +39,12 @@ public class Start_Menu : MonoBehaviour
         SceneManager.LoadScene("Single Player");
     }
 
+    // start ml mode
+    public void MLMode()
+    {
+        SceneManager.LoadScene("ML Mode");
+    }
+
     //start vs mode
     public void VSMode()
     {
