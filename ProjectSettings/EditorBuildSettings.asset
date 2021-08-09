@@ -18,9 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Single Player.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Game Over.unity
-    guid: ecf4e427ef0a5e14fad16ff0960fb353
+    path: Assets/Scenes/ML Mode.unity
+    guid: 374da5dc09b891c44b2191739ef531ec
   - enabled: 1
     path: Assets/Scenes/VS Mode.unity
     guid: debd62277ac7d314297f10cc5d6aa4f1
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: ecf4e427ef0a5e14fad16ff0960fb353
   m_configObjects: {}

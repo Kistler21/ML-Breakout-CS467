@@ -779,7 +779,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 208576710}
         m_TargetAssemblyTypeName: Start_Menu, Assembly-CSharp
-        m_MethodName: VSMode
+        m_MethodName: GameModes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
