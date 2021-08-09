@@ -68,7 +68,7 @@ public class Ball_Target : MonoBehaviour
 
             //Decrements life counter variable in GM script
             gm.decreaseLives();
-            // paddleAgent.ballMissed();
+            paddleAgent.ballMissed();
 
             if (gm.lives == 0)
             {

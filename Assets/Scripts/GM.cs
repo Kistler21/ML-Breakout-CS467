@@ -19,15 +19,25 @@ public class GM : MonoBehaviour
         get => _score;
         set => _score = value;
     }
+    public Text level_text;
+    private int _level;
+    public int level
+    {
+        get => _level;
+        set => _level = value;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+
         _lives = 5;
         _score = 0;
+        _level = 1;
 
         score_text.text = $"SCORE: {_score}";
         lives_text.text = $"LIVES: {_lives}";
+        level_text.text = $"LEVEL: {_level}";
     }
 
     public void updateScore(int value)
@@ -40,5 +50,11 @@ public class GM : MonoBehaviour
     {
         _lives--;
         lives_text.text = $"LIVES: {_lives}";
+    }
+
+    public void increaseLevel()
+    {
+        _level++;
+        level_text.text = $"LEVEL: {_level}";
     }
 }

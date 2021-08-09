@@ -33,6 +33,39 @@ public class Paddle_Agent_VS : Agent
         ballRigidBody = ball.GetComponent<Rigidbody2D>();
     }
 
+    public override void OnEpisodeBegin()
+    {
+        if (bricks.childCount == 0)
+        {
+            ballRigidBody.velocity = Vector2.zero;
+            ball_target.in_play = false;
+
+            gm.increaseLevel();
+            ball_target.speed *= 1.2f;
+
+            reloadBricks();
+        }
+
+        if (gm.lives == 0 && isTraining)
+        {
+            gm.lives = 5;
+            gm.score = 0;
+
+            reloadBricks();
+        }
+    }
+
+    void reloadBricks()
+    {
+        Destroy(bricks.gameObject);
+        bricks = Instantiate(
+                bricksPrefab,
+                this.transform.parent.position + new Vector3(-4.11533f, -1.78937f, 0),
+                Quaternion.identity,
+                this.transform.parent
+            ).transform;
+    }
+
     public override void CollectObservations(VectorSensor sensor)
     {
         // Positions

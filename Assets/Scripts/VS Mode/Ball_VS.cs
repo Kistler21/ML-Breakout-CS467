@@ -25,6 +25,10 @@ public class Ball_VS : MonoBehaviour
 
     public bool isInputEnabled = true;
 
+    public Transform bricks;
+
+    public GameObject bricksPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +60,23 @@ public class Ball_VS : MonoBehaviour
             {
                 rb.AddForce((Vector2.up + Vector2.right) * speed / 2);
             }
+        }
+
+        if (bricks.childCount == 0)
+        {
+            rb.velocity = Vector2.zero;
+            in_play = false;
+
+            Destroy(bricks.gameObject);
+            bricks = Instantiate(
+                bricksPrefab,
+                this.transform.parent.position + new Vector3(0.2f, -0.16f, 0),
+                Quaternion.identity,
+                this.transform.parent
+            ).transform;
+
+            gm.increaseLevel();
+            speed *= 1.2f;
         }
     }
 
