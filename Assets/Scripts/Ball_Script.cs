@@ -21,6 +21,10 @@ public class Ball_Script : MonoBehaviour
 
     public GM gm;
 
+    public Transform bricks;
+
+    public GameObject bricksPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,10 +46,6 @@ public class Ball_Script : MonoBehaviour
         if (Input.GetButtonDown("Jump") && !in_play)
         {
             in_play = true;
-            // force
-            //rb.AddForce(Vector2.up * speed);
-
-            //send ball in random direction (left or right)
 
             if (RandNum == 0)
             {
@@ -55,6 +55,23 @@ public class Ball_Script : MonoBehaviour
             {
                 rb.AddForce((Vector2.up + Vector2.right) * speed / 2);
             }
+        }
+
+        if (bricks.childCount == 0)
+        {
+            rb.velocity = Vector2.zero;
+            in_play = false;
+
+            Destroy(bricks.gameObject);
+            bricks = Instantiate(
+                bricksPrefab,
+                new Vector3(0, 0, 0),
+                Quaternion.identity,
+                this.transform.parent
+            ).transform;
+
+            gm.increaseLevel();
+            speed *= 1.2f;
         }
     }
 

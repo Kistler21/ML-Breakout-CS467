@@ -288,7 +288,11 @@ PrefabInstance:
     - target: {fileID: 6471476766740573452, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 9fa0218541f71af419b93acce7e0f27a, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: ae2ec719a071d0347a87feaa08160843, type: 3}
+    - target: {fileID: 6471476766740573452, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
+      propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6471476766740573454, guid: c9bb824d407009340960c71a1606bdc8, type: 3}
       propertyPath: isTraining
       value: 0
