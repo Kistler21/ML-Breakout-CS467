@@ -34,8 +34,18 @@ public class Ball_Target : MonoBehaviour
         // conditional to check if ball is in play
         if (!in_play)
         {
-            transform.position = paddle.position;
+            resetBall();
         }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            SceneManager.LoadScene("Game Modes Screen");
+        }
+    }
+
+    public void resetBall()
+    {
+        transform.position = paddle.position;
     }
 
     public void playBall()
