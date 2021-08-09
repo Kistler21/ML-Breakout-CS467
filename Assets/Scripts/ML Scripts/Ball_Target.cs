@@ -78,6 +78,7 @@ public class Ball_Target : MonoBehaviour
                 }
                 else
                 {
+                    PlayerPrefs.SetInt("score", gm.score);
                     SceneManager.LoadScene("Game Over");
                 }
             }

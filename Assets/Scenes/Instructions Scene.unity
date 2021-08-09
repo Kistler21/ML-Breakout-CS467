@@ -752,8 +752,8 @@ MonoBehaviour:
   m_Text: "- Press the SPACEBAR to launch the ball. \n- Use LEFT and RIGHT arrows
     on keyboard to move the paddle. \n- Aim the ball towards the bricks to break
     them, scoring points for each brick destroyed.\n- If the ball misses your paddle,
-    you lose a life and points.\n- Break all the bricks to advance to the next level.\n-
-    If all lives are lost, the game is over."
+    you lose a life and points.\n- Break all the bricks to beat the game.\n- If all
+    lives are lost, the game is over."
 --- !u!222 &1561930021
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -832,7 +832,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: Back to Main
 --- !u!222 &1595247631
 CanvasRenderer:
   m_ObjectHideFlags: 0
