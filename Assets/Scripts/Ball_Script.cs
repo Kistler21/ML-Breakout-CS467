@@ -40,7 +40,7 @@ public class Ball_Script : MonoBehaviour
         // conditional to check if ball is in play
         if (!in_play)
         {
-            transform.position = paddle.position;
+            resetBall();
         }
 
         // conditional to use spacebar to start game 
@@ -62,6 +62,7 @@ public class Ball_Script : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             in_play = false;
+            resetBall();
 
             Destroy(bricks.gameObject);
             bricks = Instantiate(
@@ -74,6 +75,16 @@ public class Ball_Script : MonoBehaviour
             gm.increaseLevel();
             speed *= 1.2f;
         }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            SceneManager.LoadScene("Game Modes Screen");
+        }
+    }
+
+    public void resetBall()
+    {
+        transform.position = paddle.position;
     }
 
     // function for bottom screen edge when ball misses paddle 

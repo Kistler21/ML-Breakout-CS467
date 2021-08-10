@@ -39,6 +39,7 @@ public class Paddle_Agent_VS : Agent
         {
             ballRigidBody.velocity = Vector2.zero;
             ball_target.in_play = false;
+            ball_target.resetBall();
 
             gm.increaseLevel();
             ball_target.speed *= 1.2f;

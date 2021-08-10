@@ -37,8 +37,18 @@ public class Ball_Target_VS : MonoBehaviour
         // conditional to check if ball is in play
         if (!in_play)
         {
-            transform.position = paddle.position;
+            resetBall();
         }
+
+        if (gm.lives == 0 && gm.score < playerGM.score)
+        {
+            gameOver();
+        }
+    }
+
+    public void resetBall()
+    {
+        transform.position = paddle.position;
     }
 
     public void playBall()
@@ -75,7 +85,7 @@ public class Ball_Target_VS : MonoBehaviour
 
             if (gm.lives == 0 && playerGM.lives == 0)
             {
-                GameOver();
+                gameOver();
             }
             else if (gm.lives == 0)
             {
@@ -84,7 +94,7 @@ public class Ball_Target_VS : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void gameOver()
     {
         if (gm.score > playerGM.score)
         {

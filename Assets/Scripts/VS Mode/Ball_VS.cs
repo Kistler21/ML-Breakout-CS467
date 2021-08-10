@@ -45,7 +45,7 @@ public class Ball_VS : MonoBehaviour
         // conditional to check if ball is in play
         if (!in_play)
         {
-            transform.position = paddle.position;
+            resetBall();
         }
 
         // conditional to use spacebar to start game 
@@ -68,6 +68,7 @@ public class Ball_VS : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             in_play = false;
+            resetBall();
 
             Destroy(bricks.gameObject);
             bricks = Instantiate(
@@ -80,6 +81,21 @@ public class Ball_VS : MonoBehaviour
             gm.increaseLevel();
             speed *= 1.2f;
         }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            SceneManager.LoadScene("Game Modes Screen");
+        }
+
+        if (gm.lives == 0 && gm.score < computerGM.score)
+        {
+            gameOver();
+        }
+    }
+
+    public void resetBall()
+    {
+        transform.position = paddle.position;
     }
 
     // function for bottom screen edge when ball misses paddle 
@@ -97,7 +113,7 @@ public class Ball_VS : MonoBehaviour
             // Check if game over
             if (gm.lives == 0 && computerGM.lives == 0)
             {
-                GameOver();
+                gameOver();
             }
             else if (gm.lives == 0)
             {
@@ -106,7 +122,7 @@ public class Ball_VS : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void gameOver()
     {
         if (gm.score > computerGM.score)
         {
