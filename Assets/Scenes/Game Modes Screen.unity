@@ -807,8 +807,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 671.99994, y: -648.34}
-  m_SizeDelta: {x: 503.69, y: 96.83}
+  m_AnchoredPosition: {x: 671.99994, y: -646.95}
+  m_SizeDelta: {x: 503.69, y: 124.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1010027028
 MonoBehaviour:
@@ -843,8 +843,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Versus Mode! Test your skills against the computer in a battle to the finish!
-    (User's screen portion will be on the left).
+  m_Text: "Versus Mode! Test your skills against the computer in a battle to the
+    finish!\n (User's screen portion will be on the left with a red paddle)."
 --- !u!222 &1010027029
 CanvasRenderer:
   m_ObjectHideFlags: 0
